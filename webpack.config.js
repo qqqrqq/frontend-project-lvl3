@@ -1,12 +1,12 @@
-const path = require('path')
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     port: 8080,
@@ -20,8 +20,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
-    })
+      template: 'index.html',
+    }),
   ],
   module: {
     rules: [
@@ -31,4 +31,4 @@ module.exports = {
       },
     ],
   },
-}
+};
