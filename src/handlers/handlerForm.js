@@ -7,17 +7,18 @@ const handlerForm = (state, validationWatcher, contentRssWatcher, input) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const valueInput = input.value;
-    validator(valueInput)
+
+    validator(state.i18Instance, valueInput)
       .then((data) => {
         const { feeds } = contentRssWatcher;
         if (!isNewRss(feeds, data)) {
-          throw new Error('Url is already in feeds');
+          throw new Error(state.i18Instance.t('validation.errors.errorUrlExist'));
         }
         return data;
       })
       .then((data) => {
-        input.value = '';
-        input.focus();
+        state.messageError = state.i18Instance.t('validation.isValid');
+        validationWatcher.isValid = true;
         validationWatcher.isValid = true;
 
         return data;
@@ -25,7 +26,8 @@ const handlerForm = (state, validationWatcher, contentRssWatcher, input) => {
       .then((data) => {
         handlerLoaderRssContent(data, state);
       })
-      .catch(() => {
+      .catch((err) => {
+        state.messageError = err.message;
         validationWatcher.isValid = false;
       });
   });
