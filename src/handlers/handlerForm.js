@@ -10,24 +10,23 @@ const handlerForm = (state, validationWatcher, contentRssWatcher, input) => {
 
     validator(state.i18Instance, valueInput)
       .then((data) => {
-        const { feeds } = contentRssWatcher;
-        if (!isNewRss(feeds, data)) {
+        const { resources } = contentRssWatcher;
+        if (!isNewRss(resources, data)) {
           throw new Error(state.i18Instance.t('validation.errors.errorUrlExist'));
         }
         return data;
       })
       .then((data) => {
-        state.messageError = state.i18Instance.t('validation.isValid');
+        state.messageErr = state.i18Instance.t('validation.isValid');
         validationWatcher.isValid = true;
-        validationWatcher.isValid = true;
-
         return data;
       })
       .then((data) => {
-        handlerLoaderRssContent(data, state);
+        handlerLoaderRssContent(contentRssWatcher, data, state);
       })
       .catch((err) => {
-        state.messageError = err.message;
+        state.messageErr = err.message;
+
         validationWatcher.isValid = false;
       });
   });

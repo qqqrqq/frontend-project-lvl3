@@ -18,7 +18,18 @@ const init = new Promise((resolve) => {
     i18Instance,
     messageErr: null,
     rssContent: {
+      loadError: null,
       feeds: [],
+      topics: [],
+      resources: [],
+      updateRss: {
+        timerID: null,
+        errorUpdate: null,
+      },
+      uiState: {
+        viewedTopics: [],
+        activeModalTopic: null,
+      },
     },
     validationStatus: {
       isValid: null,
