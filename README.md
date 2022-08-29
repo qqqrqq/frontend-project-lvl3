@@ -6,4 +6,4 @@
 
 
 
-https://rssagregator-ag852e6ei-qqqrqq.vercel.app/
+https://rssagregator-steel.vercel.app/
