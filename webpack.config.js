@@ -1,34 +1,34 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import * as path from 'path';
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
-module.exports = {
-  mode: process.env.NODE_ENV || 'development',
-  entry: './src/index.js',
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+
+export default {
+  mode: 'development',
+  entry: {
+    main: './src/runApp.js',
   },
-  devServer: {
-    port: 8080,
-    host: 'localhost',
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
-    open: true,
-    hot: true,
-    compress: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-    }),
-  ],
   module: {
     rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
       },
     ],
   },
+  output: {
+    filename: '[name].[contenthash].js',
+    path: path.resolve('dist'),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
 };
