@@ -1,52 +1,44 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "[![Actions Status](https://github.com/qqqrqq/frontend-project-lvl3/workflows/hexlet-check/badge.svg)](https://github.com/qqqrqq/frontend-project-lvl3/actions)",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "lint": "eslint ."
+    "lint": "eslint --fix ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Boristhblade/frontend-project-lvl3.git"
+    "url": "git+https://github.com/qqqrqq/frontend-project-lvl3.git"
   },
-  "author": "Boris the Blade",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Boristhblade/frontend-project-lvl3/issues"
+    "url": "https://github.com/qqqrqq/frontend-project-lvl3/issues"
   },
-  "homepage": "https://github.com/Boristhblade/frontend-project-lvl3#readme",
+  "homepage": "https://github.com/qqqrqq/frontend-project-lvl3#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.0",
-    "@babel/preset-env": "^7.18.0",
-    "@webpack-cli/generators": "^1.1.0",
-    "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
-    "eslint": "^8.16.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-standard": "^17.0.0",
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "^6.0.0",
     "html-webpack-plugin": "^5.5.0",
-    "jest": "^28.1.0",
-    "prettier": "^2.6.2",
     "style-loader": "^3.3.1",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "bootstrap": "^5.1.3",
-    "i18next": "^21.8.5",
+    "bootstrap": "^5.2.0",
+    "i18next": "^21.9.1",
     "lodash": "^4.17.21",
     "on-change": "^4.0.1",
     "yup": "^0.32.11"

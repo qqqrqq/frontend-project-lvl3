@@ -1,20 +1,25 @@
 export default {
-  translation: {
-    languages: {
-      ru: 'Русский',
-    },
-    texts: {
-      statusMessage: {
-        successful: 'RSS успешно загружен',
-        invalid: 'Ссылка должна быть валидным URL',
-        existing: 'RSS уже существует',
-        noValidRss: 'Ресурс не содержит валидный RSS',
-        networkError: 'Ошибка сети',
+  ru: {
+    translation: {
+      validation: {
+        errors: {
+          errorValid: 'Ссылка должна быть валидным URL',
+          errorUrlExist: 'RSS уже существует',
+        },
+        isValid: 'RSS загружается',
       },
-      rssFeed: {
-        posts: 'Посты',
-        feeds: 'Фиды',
-        watch: 'Просмотр',
+      loading: {
+        loadErrors: {
+          errorNetwork: 'Ошибка сети',
+          errorData: 'Ресурс не содержит валидный RSS',
+        },
+        isLoaded: 'RSS успешно загружен',
+      },
+      updating: {
+        errors: {
+          errorNetwork: 'Ошибка сети',
+          errorResourse: 'Ресурс не содержит валидный RSS',
+        },
       },
     },
   },

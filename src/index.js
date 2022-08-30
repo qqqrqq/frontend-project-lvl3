@@ -1,5 +1,44 @@
-import './style.css';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import i18next from 'i18next';
 import app from './app.js';
+import languages from './locales/languages.js';
 
-app();
+const init = new Promise((resolve) => {
+  const i18Instance = i18next.createInstance();
+  i18Instance.init({
+    lng: 'ru',
+    debug: false,
+    resources: languages.ru,
+  });
+
+  resolve(i18Instance);
+}).then((i18Instance) => {
+  const state = {
+    i18Instance,
+    messageErr: null,
+    rssContent: {
+      loadError: null,
+      feeds: [],
+      topics: [],
+      resources: [],
+      updateRss: {
+        timerID: null,
+        errorUpdate: null,
+      },
+      uiState: {
+        viewedTopics: [],
+        activeModalTopic: null,
+      },
+    },
+    validationStatus: {
+      isValid: null,
+    },
+    process: {
+      currentProcess: null,
+    },
+  };
+
+  return state;
+});
+init.then(app);
