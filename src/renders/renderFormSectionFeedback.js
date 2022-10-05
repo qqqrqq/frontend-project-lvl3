@@ -4,9 +4,15 @@ const renderFormSectionFeedback = (isValid, messageError) => {
   input.value = '';
   input.focus();
   errorItem.textContent = messageError;
-
-  isValid ? input.classList.remove('is-invalid') : input.classList.add('is-invalid');
-  isValid ? errorItem.classList.add('text-success') : errorItem.classList.add('text-danger');
+  if (isValid) {
+    input.classList.remove('is-invalid');
+    errorItem.classList.add('text-success');
+    errorItem.classList.remove('text-danger');
+  } else {
+    input.classList.add('is-invalid');
+    errorItem.classList.add('text-danger');
+    errorItem.classList.remove('text-success');
+  }
 };
 
 export default renderFormSectionFeedback;

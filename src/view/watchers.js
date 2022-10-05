@@ -25,8 +25,9 @@ const watcherLoaderRssContent = (state) => {
           resetStatus(watcher, path);
         }
         if (value === false) {
-          renderRssContent(watcher, state.i18Instance);
           renderFormSectionFeedback(true, state.messageErr);
+          renderRssContent(watcher, state.i18Instance);
+
           handlerBtnsOpenModal(watcher);
           resetStatus(watcher, path);
           if (!getTimer(watcher)) setTimer(watcher, state, true);

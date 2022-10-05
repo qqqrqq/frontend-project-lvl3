@@ -4,8 +4,8 @@ import parseContent from '../rssParser/parseContent.js';
 
 const handlerLoaderRssContent = (contentRssWatcher, url, state) => {
   const id = _.uniqueId();
-
-  axios.get(url)
+  const proxy = 'https://allorigins.hexlet.app/get?';
+  axios.get(`${proxy}disableCache=true&url=${encodeURIComponent(url)}/`)
     .catch(() => {
       state.messageErr = state.i18Instance.t('loading.loadErrors.errorNetwork');
       throw new Error();

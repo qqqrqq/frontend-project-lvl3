@@ -14,6 +14,7 @@ const handlerForm = (state, validationWatcher, contentRssWatcher, input) => {
         if (!isNewRss(resources, data)) {
           throw new Error(state.i18Instance.t('validation.errors.errorUrlExist'));
         }
+
         return data;
       })
       .then((data) => {
@@ -23,6 +24,8 @@ const handlerForm = (state, validationWatcher, contentRssWatcher, input) => {
       })
       .then((data) => {
         handlerLoaderRssContent(contentRssWatcher, data, state);
+        validationWatcher.isValid = true;
+        state.messageErr = state.i18Instance.t('validation.errors.errorValid');
       })
       .catch((err) => {
         state.messageErr = err.message;

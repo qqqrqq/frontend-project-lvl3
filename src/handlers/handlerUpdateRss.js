@@ -10,7 +10,7 @@ const checkNewRss = (watcher, state) => {
       state.messageErr = state.i18Instance.t('updating.errors.errorNetwork');
       throw new Error();
     })
-    .then((resp) => parseContent(resp.data, res.id))
+    .then((resp) => parseContent(resp, res.id))
     .catch(() => {
       state.messageErr = state.i18Instance.t('updating.errors.errorResourse');
       throw new Error();

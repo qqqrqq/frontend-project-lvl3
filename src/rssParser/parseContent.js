@@ -4,7 +4,7 @@ const parseContent = (response, id) => {
   try {
     const parser = new DOMParser();
 
-    const content = parser.parseFromString(response.data || response.contents, 'text/xml');
+    const content = parser.parseFromString(response.data.contents, 'text/xml');
 
     const feed = {
       title: content.querySelector('channel title').textContent,
