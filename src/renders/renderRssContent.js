@@ -76,6 +76,8 @@ const buildFeed = (feed) => {
   return liFeed;
 };
 
+
+
 const renderRssContent = (watcher, i18, update = false) => {
   const { feeds } = watcher;
   const { topics } = watcher;
